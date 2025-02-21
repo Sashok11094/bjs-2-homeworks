@@ -1,13 +1,13 @@
 "use strict"
 function solveEquation(a, b, c) {
  let arr = [];
-  let D =  b ** 2 - 4 * a * c;
+  const discriminant =  b ** 2 - 4 * a * c;
   if (D > 0) {
-    let root1 = (-b + Math.sqrt(D) )/(2*a);
-    let root2 = (-b - Math.sqrt(D) )/(2*a);
+    const root1 = (-b + Math.sqrt(discriminant) )/(2*a);
+    const root2 = (-b - Math.sqrt(discriminant) )/(2*a);
     return [root1, root2];
   } else if (D === 0) {
-    let root = -b/(2*a);
+    const root = -b/(2*a);
     return [root];
   } else {
     // Нет корней!
