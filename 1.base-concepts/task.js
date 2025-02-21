@@ -2,11 +2,11 @@
 function solveEquation(a, b, c) {
  let arr = [];
   const discriminant =  b ** 2 - 4 * a * c;
-  if (D > 0) {
+  if ( discriminant    > 0) {
     const root1 = (-b + Math.sqrt(discriminant) )/(2*a);
     const root2 = (-b - Math.sqrt(discriminant) )/(2*a);
     return [root1, root2];
-  } else if (D === 0) {
+  } else if (discriminant === 0) {
     const root = -b/(2*a);
     return [root];
   } else {
