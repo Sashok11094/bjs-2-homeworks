@@ -41,5 +41,5 @@ this.excluded = reason;
 delete this.marks;
 delete this.subject;
 }
-student1.excluded('Отчислен');
+student1.exclude('Отчислен');
 

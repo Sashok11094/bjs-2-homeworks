@@ -3,14 +3,13 @@ class PrintEditionItem {
     this.name = name;
     this.releaseDate = releaseDate;
     this.pagesCount = pagesCount;
-    this._state = 100;
+    this.state = 100;
     this.type = null;
   }
 
   fix() {
-    if (this._state >= 0 && this._state < 100) {
-        this._state = Math.min(this._state * 1.5, 100); 
-    }
+        this.state = Math.min(this.state * 1.5, 100); 
+
   }
 
   set state (newState) {
@@ -35,7 +34,7 @@ class Magazine extends PrintEditionItem {
 }
 
 class Book extends PrintEditionItem {
-  constructor (name, releaseDate, pagesCount, author) {
+  constructor (author, name, releaseDate, pagesCount, ) {
     super (name, releaseDate, pagesCount);
     this.author = author;
     this.type = "book";
@@ -43,22 +42,48 @@ class Book extends PrintEditionItem {
 }
 
 class NovelBook extends Book {
-  constructor (name, releaseDate, pagesCount, authot) {
-    super (name, releaseDate, pagesCount, authot);
+  constructor (name, releaseDate, pagesCount, ) {
+    super (name, releaseDate, pagesCount, );
     this.type = "novel";
   }
 }
 
 class FantasticBook extends Book {
-  constructor (name, releaseDate, pagesCount, authot) {
-    super (name, releaseDate, pagesCount, authot);
+  constructor (author, name, releaseDate, pagesCount, ) {
+    super (author, name, releaseDate, pagesCount, author);
     this.type = "fantastic";
   }
 }
 
 class DetectiveBook extends Book {
-  constructor (name, releaseDate, pagesCount, authot) {
-    super (name, releaseDate, pagesCount, authot);
+  constructor (author, name, releaseDate, pagesCount, ) {
+    super (author, name, releaseDate, pagesCount,);
     this.type = "detective";
   }
 }
+
+class Library {
+  constructor (name){
+    this.name = name;
+    this.books = [];
+  }
+
+ addBook(book) {
+  if(book.state > 30){
+    this.books.push(book);
+  }
+ }
+
+ findBookBy(type, value){
+  return this.books.find((book) => book[type] === value) || null;
+ }
+
+ giveBookByName(bookName){  
+let requestedBook = this.books.findIndex(book => book.name === bookName);
+if (requestedBook !== -1) {
+  return this.books.splice(requestedBook, 1)[0];
+}
+return null;
+ }
+}
+
