@@ -43,3 +43,8 @@ delete this.subject;
 }
 student1.exclude('Отчислен');
 
+class Student {
+  constructor(){
+    
+  }
+}
